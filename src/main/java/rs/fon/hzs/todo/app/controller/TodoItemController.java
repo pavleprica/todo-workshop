@@ -2,6 +2,8 @@ package rs.fon.hzs.todo.app.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.fon.hzs.todo.app.model.CreateTodoItemDto;
 import rs.fon.hzs.todo.app.model.ReturnTodoItemDto;
@@ -15,6 +17,7 @@ import java.util.List;
 @RequestMapping("/todo-items")
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin
 public class TodoItemController {
 
     /*
@@ -28,6 +31,14 @@ public class TodoItemController {
     8. Delete todo DELETE - done
     9. Delete by status DELETE - done
      */
+
+    @RequestMapping(method = RequestMethod.OPTIONS)
+    ResponseEntity<?> options() {
+        return ResponseEntity
+                .ok()
+                .allow(HttpMethod.GET, HttpMethod.POST, HttpMethod.DELETE)
+                .build();
+    }
 
     private final TodoItemService todoItemService;
 
