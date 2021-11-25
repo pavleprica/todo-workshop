@@ -1,4 +1,4 @@
-package io.github.com.pavleprica.hzs.template;
+package rs.fon.hzs.todo.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

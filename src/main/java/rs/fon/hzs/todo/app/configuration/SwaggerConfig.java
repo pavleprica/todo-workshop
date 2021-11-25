@@ -1,4 +1,4 @@
-package io.github.com.pavleprica.hzs.template.configuration;
+package rs.fon.hzs.todo.app.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,17 +18,17 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors
-                        .basePackage("io.github.com.pavleprica.hzs.template.controller"))
+                        .basePackage("rs.fon.hzs.todo.app.controller"))
                 .paths(PathSelectors.any())
                 .build()
-                .apiInfo(apiEndpointsInfo());
+                .apiInfo(apiEndpointsInfo()); //localhost:8080/swagger-ui/
     }
 
     private ApiInfo apiEndpointsInfo() {
         return new ApiInfoBuilder()
-                .title("HZS Hackathon - FONIS")
-                .contact(new Contact("Pavle Prica", "https://github.com/pavleprica", "pavle.prica@zuehlke.com"))
-                .version("0.0.1")
+                .title("Todo App workshop")
+                .contact(new Contact("Workshop people", "https://google.com", "dean.shawn@gmail.com"))
+                .version("5.0.0")
                 .build();
     }
 
